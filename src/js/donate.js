@@ -40,6 +40,7 @@ App = {
       App.contracts.Donation = TruffleContract(DonateArtifact);
       App.contracts.Donation.setProvider(App.web3Provider);
       App.getMyDonate();
+      App.getTotalDonate();
     });
 
     return App.bindEvents();
@@ -74,6 +75,7 @@ App = {
           alert("Thanks for your donation amount " + eth_value + " ETH");
           document.getElementById("donate_value").value = "";
           App.getMyDonate();
+          App.getTotalDonate();
         })
         .catch(function (err) {
           console.log(err.message);
@@ -98,7 +100,33 @@ App = {
         })
         .then((resp) => {
           const mydonate = web3.fromWei(resp.toString(), "ether");
-          document.getElementById("donate_stat_value").innerHTML = mydonate;
+          console.log("MY: ", mydonate);
+          document.getElementById("own_donate_value").innerHTML = mydonate;
+        })
+
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  getTotalDonate: function (event) {
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.Donation.deployed()
+        .then(function (instance) {
+          donateInstance = instance;
+          return donateInstance.getTotalDonations();
+        })
+        .then((resp) => {
+          const totalDonate = web3.fromWei(resp.toString(), "ether");
+          console.log("totalDonate: ", totalDonate);
+          document.getElementById("total_donate_value").innerHTML = totalDonate;
         })
 
         .catch(function (err) {
