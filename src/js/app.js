@@ -123,33 +123,6 @@ App = {
         });
     });
   },
-
-  handleDonate: function (event) {
-    event.preventDefault();
-    var donateInstance;
-
-    web3.eth.getAccounts(function (error, accounts) {
-      if (error) {
-        console.log(error);
-      }
-
-      var account = accounts[0];
-      App.contracts.Donate.deployed()
-        .then(function (instance) {
-          donateInstance = instance;
-
-          // Execute adopt as a transaction by sending account
-          return adoptionInstance.adopt(petId, { from: account });
-        })
-        .then(function (result) {
-          // Donate แล้วจ้าาา
-          return App.markAdopted();
-        })
-        .catch(function (err) {
-          console.log(err.message);
-        });
-    });
-  },
 };
 
 $(function () {
