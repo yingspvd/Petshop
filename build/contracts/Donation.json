@@ -248,7 +248,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 181,
+                        "referencedDeclaration": 225,
                         "src": "172:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -346,7 +346,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 181,
+                              "referencedDeclaration": 225,
                               "src": "265:3:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -409,7 +409,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 181,
+                              "referencedDeclaration": 225,
                               "src": "289:3:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -474,10 +474,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        184,
-                        185
+                        228,
+                        229
                       ],
-                      "referencedDeclaration": 184,
+                      "referencedDeclaration": 228,
                       "src": "257:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -534,7 +534,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 181,
+                          "referencedDeclaration": 225,
                           "src": "324:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -576,7 +576,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 181,
+                        "referencedDeclaration": 225,
                         "src": "339:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -692,7 +692,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 181,
+                        "referencedDeclaration": 225,
                         "src": "446:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -833,7 +833,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 197,
+                          "referencedDeclaration": 241,
                           "src": "569:4:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_Donation_$133",
@@ -994,7 +994,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 181,
+                            "referencedDeclaration": 225,
                             "src": "680:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1048,10 +1048,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        184,
-                        185
+                        228,
+                        229
                       ],
-                      "referencedDeclaration": 184,
+                      "referencedDeclaration": 228,
                       "src": "672:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1126,7 +1126,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 181,
+                          "referencedDeclaration": 225,
                           "src": "711:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1411,7 +1411,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 181,
+                                  "referencedDeclaration": 225,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1532,10 +1532,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                184,
-                                185
+                                228,
+                                229
                               ],
-                              "referencedDeclaration": 184,
+                              "referencedDeclaration": 228,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1591,7 +1591,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 181,
+                                          "referencedDeclaration": 225,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -1656,7 +1656,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 181,
+                                          "referencedDeclaration": 225,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -1761,7 +1761,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 181,
+                                      "referencedDeclaration": 225,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1797,7 +1797,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 181,
+                                  "referencedDeclaration": 225,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1939,7 +1939,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 181,
+                                  "referencedDeclaration": 225,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -2119,7 +2119,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 197,
+                                  "referencedDeclaration": 241,
                                   "type": "contract Donation",
                                   "value": "this"
                                 },
@@ -2242,10 +2242,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                184,
-                                185
+                                228,
+                                229
                               ],
-                              "referencedDeclaration": 184,
+                              "referencedDeclaration": 228,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -2286,7 +2286,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 181,
+                                      "referencedDeclaration": 225,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2380,7 +2380,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 181,
+                                      "referencedDeclaration": 225,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2475,12 +2475,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xa9B530674b535Ad30f8A5Af56664B67928FA6275",
-      "transactionHash": "0x6560a814728cdeffb49c31b05ffd1a6e2b322732782eb08d6d78c9b0b32977a3"
+      "address": "0x35638F22d87aD69Fa79589F9494E1b47B2A097a7",
+      "transactionHash": "0xc1fde149fe2f1941a2731e5f3917dfdf5b64710a0f29979518657d4c94db96f1"
     }
   },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-04-26T11:29:00.231Z",
+  "updatedAt": "2022-04-26T16:06:11.185Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
