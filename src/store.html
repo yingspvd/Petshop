@@ -14,6 +14,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link href="./css/pricing.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,16 +23,22 @@
     <![endif]-->
   </head>
   <body>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">Ma Hao Ma Ha้o</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/index.html">Pet Store</a>
+        <a class="p-2 text-dark" href="/store.html">Product Store</a>
+        <a class="p-2 text-dark" href="/donate.html">Donation</a>
+      </nav>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center">Ma hao ma ha้o</h1>
-          Menu:
-          <a href="/index.html">Dog Store</a>
-          |
-          <a href="/store.html">Pet Store</a>
-          |
-          <a href="/donate.html">Donation</a>
+          <h1 class="text-center">Product Store</h1>
+
           <hr />
           <br />
         </div>
@@ -40,21 +47,57 @@
         <!-- STORE LOAD HERE -->
       </div>
     </div>
+
     <div id="storeTemplate" style="display: none">
-      <div class="card" style="width: 18rem">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-body">
+            <img
+              alt="120x120"
+              data-src="holder.js/120x120"
+              class="img-rounded img-center"
+              style="width: 100%"
+              src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg"
+              data-holder-rendered="true"
+            />
+            <h5 class="card-title">Card title</h5>
+            <h5>
+              <strong>Price: <span class="pet-price">3</span> ETH</strong>
+            </h5>
+
+            <br />
+  
+            <button
+            type="button"
+            class="btn btn-success btn-lg btn-block btn-buy"
+            data-price="0"
+          >
+            Buy
+            
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card" style="width: 18rem">
         <img class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <strong class="card-text"> Price</strong>
+          <strong class="card-text">Price</strong>
           :
           <span id="price_value" class="store-price">0</span>
           ETH
           <br />
           <br />
-          <button class="btn btn-primary btn-buy" data-price="0">Buy</button>
-        </div>
-      </div>
+
+          <button
+          type="button"
+          class="btn btn-success btn-lg btn-block btn-buy"
+          data-price="0"
+        >
+          Buy
+     
+      </div> -->
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
