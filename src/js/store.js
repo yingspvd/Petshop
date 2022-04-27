@@ -79,7 +79,6 @@ App = {
 
       App.contracts.ProductStore.deployed()
         .then(function (instance) {
-          console.log(instance);
           storeInstance = instance;
 
           // Execute adopt as a transaction by sending account
@@ -90,6 +89,29 @@ App = {
         })
         .then(function (result) {
           alert("Successful Payment. Thank You For Choosing Us :) ");
+          //  App.transferMoney();
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  transferMoney: function () {
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.ProductStore.deployed()
+        .then(function (instance) {
+          storeInstance = instance;
+          return storeInstance.claimMoney();
+        })
+        .then(function (result) {
+          alert("Successful Transfer");
         })
         .catch(function (err) {
           console.log(err.message);

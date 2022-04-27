@@ -14,7 +14,8 @@ App = {
         petTemplate.find(".pet-breed").text(data[i].breed);
         petTemplate.find(".pet-age").text(data[i].age);
         petTemplate.find(".pet-location").text(data[i].location);
-        petTemplate.find(".btn-adopt").attr("data-id", data[i].id);
+        petTemplate.find(".pet-price").text(data[i].price);
+        petTemplate.find(".btn-buyPet").attr("data-price", data[i].price);
         petsRow.append(petTemplate.html());
       }
     });
@@ -50,56 +51,25 @@ App = {
   },
 
   initContract: function () {
-    $.getJSON("Adoption.json", function (data) {
+    $.getJSON("PetStore.json", function (data) {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
-      var AdoptionArtifact = data;
-      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
-
-      // Set the provider for our contract
-      App.contracts.Adoption.setProvider(App.web3Provider);
-
-      // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
+      var PetStoreArtifact = data;
+      App.contracts.PetStore = TruffleContract(PetStoreArtifact);
+      App.contracts.PetStore.setProvider(App.web3Provider);
     });
 
     return App.bindEvents();
   },
 
   bindEvents: function () {
-    $(document).on("click", ".btn-adopt", App.handleAdopt);
+    $(document).on("click", ".btn-buyPet", App.handleBuyPet);
   },
 
-  markAdopted: function () {
-    var adoptionInstance;
-
-    App.contracts.Adoption.deployed()
-      .then(function (instance) {
-        adoptionInstance = instance;
-
-        return adoptionInstance.getAdopters.call();
-      })
-      .then(function (adopters) {
-        for (i = 0; i < adopters.length; i++) {
-          if (adopters[i] !== "0x0000000000000000000000000000000000000000") {
-            $(".panel-pet")
-              .eq(i)
-              .find(".btn-adopt")
-              .text("Success")
-              .attr("disabled", true);
-          }
-        }
-      })
-      .catch(function (err) {
-        console.log(err.message);
-      });
-  },
-
-  handleAdopt: function (event) {
+  handleBuyPet: function (event) {
     event.preventDefault();
 
-    var petId = parseInt($(event.target).data("id"));
-
-    var adoptionInstance;
+    var petPrice = $(event.target).data("price");
+    var eth_value_wei = web3.toWei(petPrice, "ether");
 
     web3.eth.getAccounts(function (error, accounts) {
       if (error) {
@@ -108,15 +78,18 @@ App = {
 
       var account = accounts[0];
 
-      App.contracts.Adoption.deployed()
+      App.contracts.PetStore.deployed()
         .then(function (instance) {
-          adoptionInstance = instance;
+          petStoreInstance = instance;
 
           // Execute adopt as a transaction by sending account
-          return adoptionInstance.adopt(petId, { from: account });
+          return petStoreInstance.payPet(eth_value_wei, {
+            from: account,
+            value: eth_value_wei,
+          });
         })
         .then(function (result) {
-          return App.markAdopted();
+          alert("Successful Payment. Thank You For Choosing Us :) ");
         })
         .catch(function (err) {
           console.log(err.message);
