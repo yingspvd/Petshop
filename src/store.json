@@ -3,96 +3,96 @@
     "id": 0,
     "name": "Maxi Light Weight Care",
     "picture": "images/royal1.jpg",
-    "price": 0.2
+    "price": 0.01
   },
   {
     "id": 1,
     "name": "French Bulldog Adult",
     "picture": "images/royal2.jpg",
-    "price": 1
+    "price": 0.009
   },
   {
     "id": 2,
     "name": "Maxi Puppy",
     "picture": "images/royal3.jpg",
-    "price": 2
+    "price": 0.008
   },
   {
     "id": 3,
     "name": "Mini Indoor Adult",
     "picture": "images/royal4.jpg",
-    "price": 0.2
+    "price": 0.007
   },
   {
     "id": 4,
     "name": "Maxi Adult 5+",
     "picture": "images/royal5.jpg",
-    "price": 0.2
+    "price": 0.01
   },
   {
     "id": 5,
     "name": "Giant Adult",
     "picture": "images/royal6.jpg",
-    "price": 0.3
+    "price": 0.006
   },
   {
     "id": 6,
     "name": "Latisha",
     "picture": "images/royal7.jpg",
-    "price": 4
+    "price": 0.007
   },
   {
     "id": 7,
     "name": "X-Small Adult 8+",
     "picture": "images/royal8.jpg",
-    "price": 3
+    "price": 0.005
   },
   {
     "id": 8,
     "name": "Maxi Light Weight Care",
     "picture": "images/royal1.jpg",
-    "price": 2
+    "price": 0.004
   },
   {
     "id": 9,
     "name": "French Bulldog Adult",
     "picture": "images/royal2.jpg",
-    "price": 0.2
+    "price": 0.004
   },
   {
     "id": 10,
     "name": "Maxi Puppy",
     "picture": "images/royal3.jpg",
-    "price": 0.2
+    "price": 0.005
   },
   {
     "id": 11,
     "name": "Mini Indoor Adult",
     "picture": "images/royal4.jpg",
-    "price": 0.2
+    "price": 0.008
   },
   {
     "id": 12,
     "name": "Maxi Adult 5+",
     "picture": "images/royal5.jpg",
-    "price": 0.6
+    "price": 0.006
   },
   {
     "id": 13,
     "name": "Giant Adult",
     "picture": "images/royal6.jpg",
-    "price": 8
+    "price": 0.008
   },
   {
     "id": 14,
     "name": "Latisha",
     "picture": "images/royal7.jpg",
-    "price": 2
+    "price": 0.009
   },
   {
     "id": 15,
     "name": "X-Small Adult 8+",
     "picture": "images/royal8.jpg",
-    "price": 1
+    "price": 0.0085
   }
 ]

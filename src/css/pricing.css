@@ -17,5 +17,7 @@ html {
 
 .card-deck .card {
   min-width: 220px;
-  
+}
+.border-right {
+  border-right: 2px solid black;
 }

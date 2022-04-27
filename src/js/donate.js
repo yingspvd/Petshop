@@ -52,7 +52,22 @@ App = {
 
   handleDonate: function (event) {
     event.preventDefault();
-    var eth_value = document.getElementById("donate_value").value;
+    var eth_value = 0;
+    var donateChoice = document.getElementsByName("donateChoice");
+    for (i = 0; i < donateChoice.length; i++) {
+      if (donateChoice[i].checked) {
+        eth_value = donateChoice[i].value;
+      }
+    }
+
+    if (eth_value == 0) {
+      eth_value = document.getElementById("donate_value").value;
+
+      if (eth_value < 0.001) {
+        alert("Please fill number more than 0.001");
+      }
+    }
+
     var eth_value_wei = web3.toWei(eth_value, "ether");
 
     web3.eth.getAccounts(function (error, accounts) {
@@ -100,7 +115,6 @@ App = {
         })
         .then((resp) => {
           const mydonate = web3.fromWei(resp.toString(), "ether");
-          console.log("MY: ", mydonate);
           document.getElementById("own_donate_value").innerHTML = mydonate;
         })
 
@@ -125,7 +139,6 @@ App = {
         })
         .then((resp) => {
           const totalDonate = web3.fromWei(resp.toString(), "ether");
-          console.log("totalDonate: ", totalDonate);
           document.getElementById("total_donate_value").innerHTML = totalDonate;
         })
 

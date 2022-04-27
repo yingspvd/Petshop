@@ -8,6 +8,13 @@
     <title>Ma hao ma ha้o</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="./css/pricing.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -16,34 +23,136 @@
     <![endif]-->
   </head>
   <body>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">Ma Hao Ma Ha้o</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/index.html">Pet Store</a>
+        <a class="p-2 text-dark" href="/store.html">Product Store</a>
+        <a class="p-2 text-dark" href="/donate.html">Donation</a>
+      </nav>
+    </div>
+    <br />
+
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center">Ma hao ma ha้o</h1>
-          Menu:
-          <a href="/index.html">Pet Store</a>
-          |
-          <a href="/store.html">Product Store</a>
-          |
-          <a href="/donate.html">Donation</a>
-          <hr />
-          <br />
+      <div class="row justify-content-center">
+        <div class="card" style="width: 50rem">
+          <div class="card-header text-center">
+            <h2>Pet Donation</h2>
+          </div>
+          <div class="card-body">
+            <div class="row text-center">
+              <!-- Top Left -->
+              <div class="col-lg-6 border-right">
+                <h5>Total donation amount</h5>
+                <h1>
+                  <span id="total_donate_value">0</span>
+                  ETH
+                </h1>
+              </div>
+
+              <div class="vertical"></div>
+              <!-- Top Right -->
+              <div class="col-lg-4 offset-lg-1">
+                <h5>Your donation amount</h5>
+                <h1>
+                  <span id="own_donate_value">0</span>
+                  ETH
+                </h1>
+              </div>
+            </div>
+            <hr />
+            <br />
+            <!-- Donate Part -->
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input
+                  id="choice1"
+                  name="donateChoice"
+                  type="radio"
+                  class="custom-control-input"
+                  checked=""
+                  required=""
+                  value="0.009"
+                />
+                <label class="custom-control-label" for="choice1"
+                  >0.009 ETH Can shelter and care for a dog for a month</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  id="choice2"
+                  name="donateChoice"
+                  type="radio"
+                  class="custom-control-input"
+                  required=""
+                  value="0.018"
+                />
+                <label class="custom-control-label" for="choice2"
+                  >0.018 ETH Can shelter and care for a dog for 2 months</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  id="choice3"
+                  name="donateChoice"
+                  type="radio"
+                  class="custom-control-input"
+                  required=""
+                  value="0.027"
+                />
+                <label class="custom-control-label" for="choice3"
+                  >0.027 ETH Can shelter and care for a dog for 3 months</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  id="choice4"
+                  name="donateChoice"
+                  type="radio"
+                  class="custom-control-input"
+                  required=""
+                  value="0.054"
+                />
+                <label class="custom-control-label" for="choice4"
+                  >0.054 ETH Can shelter and care for a dog for 6 months</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  id="choice5"
+                  name="donateChoice"
+                  type="radio"
+                  class="custom-control-input"
+                  required=""
+                  value="0"
+                />
+                <label class="custom-control-label" for="choice5"
+                  >Your choice (0.001 Minimum)</label
+                >
+                <div class="input-group mb-2" style="width: 25%">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">ETH</div>
+                  </div>
+                  <input type="number" class="form-control" id="donate_value" />
+                </div>
+              </div>
+            </div>
+            <!-- End of donate part -->
+          </div>
+          <div class="card-footer text-muted">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg btn-block btn-donate"
+            >
+              Donate Now
+            </button>
+          </div>
         </div>
       </div>
-      <h1>Donate</h1>
-      ETH Value :
-      <input id="donate_value" type="number" placeholder="ETH" />
-      <button class="btn-donate">Donate</button>
-      <hr />
-      <h2>Donate Stat</h2>
-      Total donation amount:
-      <span id="total_donate_value">0</span>
-      ETH
-      <br />
-      Your donation amount:
-      <span id="own_donate_value">0</span>
-      ETH
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
