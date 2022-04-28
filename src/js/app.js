@@ -90,6 +90,7 @@ App = {
         })
         .then(function (result) {
           alert("Successful Payment. Thank You For Choosing Us :) ");
+          petStoreInstance.claimMoney();
         })
         .catch(function (err) {
           console.log(err.message);

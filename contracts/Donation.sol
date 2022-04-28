@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
 contract Donation {
-    address public owner;
+    address payable public owner;
     mapping(address => uint256) public donations;
 
     constructor() public {
