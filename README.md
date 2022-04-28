@@ -1,4 +1,4 @@
-# Petshop 🐕
+# Mahao Mahao Pets Shop 🐕
 This project is a part CPE494 Blockchain Technology course. To learn about the Truffle and Ganache Ethereum smart contract development platform, as well as basics of how smart contracts work and how they are deployed onto the chain. 
 
 * * *
@@ -12,25 +12,26 @@ This project is a part CPE494 Blockchain Technology course. To learn about the T
 
 ### ⚙️ Project Installation  ###
 ```sh
-git clone https://github.com/yingspvd/petshop
+git clone https://github.com/yingspvd/Petshop
 ```
 
 ***
 
 ### 📝 How to run project ###
-- Open Ganache
-- Install all dependencies for a project
+1. Open Ganache
+2. Install all dependencies for a project
 ```sh
 yarn install
 ```
-- Compile a Truffle project and push the smart contracts to the Ethereum blockchain
+3. Compile a Truffle project and push the smart contracts to the Ethereum blockchain
 ```sh
 truffle compile && truffle migrate --reset --network=development
 ```
-- Start the local web server
+4. Start the local web server
 ```sh
 yarn dev
 ```
+5. Open http://localhost:3000 to view it in the browser
 * * *
 
 ### 👩‍💻 Created by  ###
