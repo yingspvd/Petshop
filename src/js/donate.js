@@ -39,8 +39,10 @@ App = {
       var DonateArtifact = data;
       App.contracts.Donation = TruffleContract(DonateArtifact);
       App.contracts.Donation.setProvider(App.web3Provider);
+      App.checkOwner();
       App.getMyDonate();
       App.getTotalDonate();
+      App.getMonthlyDonation();
     });
 
     return App.bindEvents();
@@ -48,6 +50,36 @@ App = {
 
   bindEvents: function () {
     $(document).on("click", ".btn-donate", App.handleDonate);
+    $(document).on("click", ".btn-claim-donate", App.handleClaimDonate);
+  },
+
+  checkOwner: function (event) {
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.Donation.deployed()
+        .then(function (instance) {
+          donateInstance = instance;
+          return donateInstance.checkOwner({
+            from: account,
+          });
+        })
+        .then((result) => {
+          if (result) {
+            console.log(result);
+            button = document.getElementById("btn-claim-donate");
+            button.style.display = "block";
+          }
+        })
+
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
   },
 
   handleDonate: function (event) {
@@ -87,10 +119,41 @@ App = {
           });
         })
         .then(function (result) {
-          alert("Thanks for your donation amount " + eth_value + " ETH");
-          document.getElementById("donate_value").value = "";
           App.getMyDonate();
           App.getTotalDonate();
+          App.getMonthlyDonation();
+          alert("Thanks for your donation amount " + eth_value + " ETH");
+          document.getElementById("donate_value").value = "";
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  handleClaimDonate: function (event) {
+    event.preventDefault();
+    console.log("contract");
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.Donation.deployed()
+        .then(function (instance) {
+          donateInstance = instance;
+
+          return donateInstance.claimDonate({
+            from: account,
+          });
+        })
+        .then(function (resp) {
+          console.log("resp ", resp);
+          const totalDonate = web3.fromWei(resp.toString(), "ether");
+          console.log("total", totalDonate);
+          alert("Already transfered " + totalDonate + " ETH to your wallet.");
         })
         .catch(function (err) {
           console.log(err.message);
@@ -113,9 +176,33 @@ App = {
             from: account,
           });
         })
-        .then((resp) => {
-          const mydonate = web3.fromWei(resp.toString(), "ether");
+        .then((result) => {
+          const mydonate = web3.fromWei(result.toString(), "ether");
           document.getElementById("own_donate_value").innerHTML = mydonate;
+        })
+
+        .catch(function (err) {
+          console.log(err.message);
+        });
+    });
+  },
+
+  getMonthlyDonation: function (event) {
+    web3.eth.getAccounts(function (error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.Donation.deployed()
+        .then(function (instance) {
+          donateInstance = instance;
+          return donateInstance.getMonthlyDonation();
+        })
+        .then((result) => {
+          const totalDonate = web3.fromWei(result.toString(), "ether");
+          document.getElementById("month_donate_value").innerHTML = totalDonate;
         })
 
         .catch(function (err) {
@@ -137,8 +224,8 @@ App = {
           donateInstance = instance;
           return donateInstance.getTotalDonations();
         })
-        .then((resp) => {
-          const totalDonate = web3.fromWei(resp.toString(), "ether");
+        .then((result) => {
+          const totalDonate = web3.fromWei(result.toString(), "ether");
           document.getElementById("total_donate_value").innerHTML = totalDonate;
         })
 
