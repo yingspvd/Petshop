@@ -40,6 +40,7 @@ App = {
       App.contracts.Donation = TruffleContract(DonateArtifact);
       App.contracts.Donation.setProvider(App.web3Provider);
       App.checkOwner();
+      App.myWallet();
       App.getMyDonate();
       App.getTotalDonate();
       App.getMonthlyDonation();
@@ -70,7 +71,6 @@ App = {
         })
         .then((result) => {
           if (result) {
-            console.log(result);
             button = document.getElementById("btn-claim-donate");
             button.style.display = "block";
           }
@@ -79,6 +79,17 @@ App = {
         .catch(function (err) {
           console.log(err.message);
         });
+    });
+  },
+
+  myWallet: function (event) {
+    web3.eth.getBalance(web3.eth.accounts[0], function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        const mymoney = web3.fromWei(result.toString(), "ether");
+        document.getElementById("my_wallet").innerHTML = mymoney;
+      }
     });
   },
 
@@ -149,11 +160,10 @@ App = {
             from: account,
           });
         })
-        .then(function (resp) {
-          console.log("resp ", resp);
-          const totalDonate = web3.fromWei(resp.toString(), "ether");
-          console.log("total", totalDonate);
-          alert("Already transfered " + totalDonate + " ETH to your wallet.");
+        .then(function (result) {
+          if (result) {
+            alert("Successful tranfer to your wallet");
+          }
         })
         .catch(function (err) {
           console.log(err.message);
@@ -161,7 +171,7 @@ App = {
     });
   },
 
-  getMyDonate: function (event) {
+  getMyDonate: function () {
     web3.eth.getAccounts(function (error, accounts) {
       if (error) {
         console.log(error);
@@ -187,7 +197,7 @@ App = {
     });
   },
 
-  getMonthlyDonation: function (event) {
+  getMonthlyDonation: function () {
     web3.eth.getAccounts(function (error, accounts) {
       if (error) {
         console.log(error);
@@ -211,7 +221,7 @@ App = {
     });
   },
 
-  getTotalDonate: function (event) {
+  getTotalDonate: function () {
     web3.eth.getAccounts(function (error, accounts) {
       if (error) {
         console.log(error);

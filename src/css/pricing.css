@@ -21,3 +21,10 @@ html {
 .border-right {
   border-right: 2px solid black;
 }
+
+a {
+  color: rgb(0, 0, 0);
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
