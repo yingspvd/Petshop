@@ -82,7 +82,7 @@ App = {
     });
   },
 
-  myWallet: function (event) {
+  myWallet: function () {
     web3.eth.getBalance(web3.eth.accounts[0], function (err, result) {
       if (err) {
         console.log(err);
@@ -133,6 +133,7 @@ App = {
           App.getMyDonate();
           App.getTotalDonate();
           App.getMonthlyDonation();
+          App.myWallet();
           alert("Thanks for your donation amount " + eth_value + " ETH");
           document.getElementById("donate_value").value = "";
         })
@@ -162,6 +163,10 @@ App = {
         })
         .then(function (result) {
           if (result) {
+            App.getMyDonate();
+            App.getTotalDonate();
+            App.getMonthlyDonation();
+            App.myWallet();
             alert("Successful tranfer to your wallet");
           }
         })

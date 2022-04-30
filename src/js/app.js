@@ -56,6 +56,7 @@ App = {
       var PetStoreArtifact = data;
       App.contracts.PetStore = TruffleContract(PetStoreArtifact);
       App.contracts.PetStore.setProvider(App.web3Provider);
+      App.myWallet();
     });
 
     return App.bindEvents();
@@ -63,6 +64,17 @@ App = {
 
   bindEvents: function () {
     $(document).on("click", ".btn-buyPet", App.handleBuyPet);
+  },
+
+  myWallet: function () {
+    web3.eth.getBalance(web3.eth.accounts[0], function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        const mymoney = web3.fromWei(result.toString(), "ether");
+        document.getElementById("my_wallet").innerHTML = mymoney;
+      }
+    });
   },
 
   handleBuyPet: function (event) {
@@ -89,6 +101,7 @@ App = {
           });
         })
         .then(function (result) {
+          App.myWallet();
           alert("Successful Payment. Thank You For Choosing Us :) ");
           petStoreInstance.claimMoney();
         })

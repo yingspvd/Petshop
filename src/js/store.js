@@ -52,9 +52,8 @@ App = {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
       var StoreArtifact = data;
       App.contracts.ProductStore = TruffleContract(StoreArtifact);
-
-      // Set the provider for our contract
       App.contracts.ProductStore.setProvider(App.web3Provider);
+      App.myWallet();
     });
 
     return App.bindEvents();
@@ -62,6 +61,17 @@ App = {
 
   bindEvents: function () {
     $(document).on("click", ".btn-buy", App.handleBuy);
+  },
+
+  myWallet: function () {
+    web3.eth.getBalance(web3.eth.accounts[0], function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        const mymoney = web3.fromWei(result.toString(), "ether");
+        document.getElementById("my_wallet").innerHTML = mymoney;
+      }
+    });
   },
 
   handleBuy: function (event) {
@@ -88,8 +98,8 @@ App = {
           });
         })
         .then(function (result) {
+          App.myWallet();
           alert("Successful Payment. Thank You For Choosing Us :) ");
-          //  App.transferMoney();
         })
         .catch(function (err) {
           console.log(err.message);
